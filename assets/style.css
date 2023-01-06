@@ -1,0 +1,15 @@
+
+.container {
+    margin-bottom: 25px;
+    padding: 25px;
+}
+
+.row {
+    margin-bottom: 25px;
+}
+
+
+#timer {
+    font-size: 20px;
+    color: black;
+}
