@@ -11,63 +11,67 @@
 <body>
     <header>
         <nav>
-            <a>View Highscores</a>
-                    <div>
-                    Time: 100
+            <a id="highscores" href="#">Highscores</a>
+                    <div id= "time">
+                    <span id="timeLeft">0</span>
+                    </div>
+                    <div id="timesUp">Time's Up!</div>
+                </div>
                     </div>
                 </div> 
           </nav>
     </header>
 
 
-    <section>
+    <section id="firstPage">
         <div class="container">
             <div class="row"><h1>The Quiz of Random Facts</h1></div>
-            <div class="row"><button>Start Quiz!</button></div>
+            <div class="row"><button id="begin">Begin!</button></div>
         </div>
     </section>
 
 
-    <section class="hide">
-        <div class="container">
-            <div class="row"><h2>Questions</h2></div>
-            <div class="row">Choices</div>
-
-                <div>
-                    <button>Continue</button>
-                </div>
+    <section class="hide" id="questionPage">
+        <div class="container" id="questionTitle">
+            <div>
+                <p><button id="btn1" class="btn btn-dark"></button></p>
+                <p><button id="btn2" class="btn btn-dark"></button></p>
+                <p><button id="btn3" class="btn btn-dark"></button></p>
+                <p><button id="btn4" class="btn btn-dark"></button></p>
+                <p id="checkAnswer"></p>
+            </div>
             </div>
 
         </div>
     </section>
 
  
-<section class="hide">
+<section class="hide" id="finished">
     <div class="container">
         <div class="row"><h1>All done!</h1></div>
-        <div class="row"><p>Your final score: <span id="finalscore">0</span></p></div>
+        <div class="row"><p>Your final score: <span id="finalScore">0</span></p></div>
         <div class="row">
             <form>
                 <div>
                 <label>Enter initials</label>
                 </div>
                 <div>
-                <input placeholder="Intials here">
+                <input id= "putInitials" placeholder="Intials here">
                 </div>
                 <div>
-                <button>Submit</button>
+                <button id="submit">Submit</button>
             </form>
         </div>
     </div>
 </section>
 
 
-<section class="hide">
+<section class="hide" id="viewHS">
     <div class="container">
         <div class="row"><h1>Highscores</h1></div>
-        <div class="row">
-            <button>Go back</button>
-            <button>Clear highscores</button>
+        <div class="row" id="listOfHighScores">
+            <button id="back">Go back</button>
+            <button id="clear">Clear highscores</button>
         </div>
 </section>
 
