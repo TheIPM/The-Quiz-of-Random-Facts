@@ -11,7 +11,7 @@ var choiceA = document.getElementById("btn1");
 var choiceB = document.getElementById("btn2");
 var choiceC = document.getElementById("btn3");
 var choiceD = document.getElementById("btn4");
-var answerCheck = document.getElementById("checkAnswer");
+var answerCheck = document.getElementById("answerCheck");
 
 var summary = document.getElementById("finished");
 var submitInitialBtn = document.getElementById("submit");
@@ -34,37 +34,37 @@ var questionIndex = 0;
 
 var questions = [
     {
-        title: "Which of the following is a fruit?",
+        question: "Which of the following is a fruit?",
         choices: ["Banana", "Tomato", "Carrot", "The concept of time"],
         answer: "Tomato"
     },
     {
-        title: "Which of the following is a delicious beverage?",
+        question: "Which of the following is a delicious beverage?",
         choices: ["A Cat", "A Brick", "A Milkshake", "The incomprehensible notion of infinity"],
         answer: "A Milkshake"
     },
     {
-        title: "If your lightbulb burns out what should you do?",
+        question: "If your lightbulb burns out what should you do?",
         choices: ["Replace it", "Eat it", "Call the hospital", "Try to bring it back using dark magic"],
         answer: "Replace it"
     },
     {
-        title: "What is a popular theory as to how Sagittarius A (the supermassive black hole at the galactic center of the milky way) was formed?",
+        question: "What is a popular theory as to how Sagittarius A (the supermassive black hole at the galactic center of the milky way) was formed?",
         choices: ["Greg coded it in via Javascript", "Was the result of Rick's experiments", "Was formed by a Quasi-Star collapsing", "Was made by mini Big Bangs occuring within galaxys"],
         answer: "Was formed by a Quasi-Star collapsing"
     },
     {
-        title: "Who do Gilgamesh and Enkidu defeat in the Cedar Forest, according to the Epic of Gilgamesh",
+        question: "Who do Gilgamesh and Enkidu defeat in the Cedar Forest, according to the Epic of Gilgamesh",
         choices: ["Humbaba", "Arinsada", "Exodia the Forbidden one", "Frieza"],
         answer: "Humbaba"
     },
     {
-        title: "Why could not the Mongols invade Japan",
+        question: "Why could not the Mongols invade Japan",
         choices: ["They were thwarted by natural disasters", "Their horses couldn't make the trip", "The samurai were too strong", "Japan had the power of Anime on their side"],
         answer: "They were thwarted by natural disasters"
     },
     {
-        title: "How great was this quiz?",
+        question: "How great was this quiz?",
         choices: ["Not bad", "Was great", "Worst thing ever", "Peak"],
         answer: "Peak"
     },
@@ -84,6 +84,11 @@ function newQuiz() {
   totalTime = 120;
   timeLeft.textContent = totalTime;
   putInitials.textContent = "";
+
+  startDiv.style.display = "none";
+  questionDiv.style.display = "block";
+  timer.style.display = "block";
+  timesUp.style.display = "none";
 
 
   var startTimer = setInterval(function() {
@@ -110,5 +115,45 @@ function showQuiz() {
     choiceB.textContent = questions[questionIndex].choices[1];
     choiceC.textContent = questions[questionIndex].choices[2];
     choiceD.textContent = questions[questionIndex].choices[3];
+  }
+
+  function checkAnswer(answer) {
+
+    var lineBreak = document.getElementById("lineBreak");
+    lineBreak.style.display = "block";
+    answerCheck.style.display = "block";
+  
+    if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
+        correctAns++;
+        answerCheck.textContent = "Correct!";
+    } else {
+        totalTime -= 10;
+        timeLeft.textContent = totalTime;
+        answerCheck.textContent = "Better luck next time, The correct answer is: " + questions[questionIndex].answer;
+    }
+  
+    questionIndex++;
+    if (questionIndex < questions.length) {
+        nextQuestion();
+    } else {
+        gameOver();
+    }
+  }
+
+  function chooseA() { checkAnswer(0); }
+  function chooseB() { checkAnswer(1); } 
+  function chooseC() { checkAnswer(2); }
+  function chooseD() { checkAnswer(3); }
+  
+  // when all questions are answered or timer reaches 0, game over
+  function gameOver() {
+    summary.style.display = "block";
+    questionDiv.style.display = "none";
+    startDiv.style.display = "none";
+    timer.style.display = "none";
+    timesUp.style.display = "block";
+  
+    // show final score
+    finalScore.textContent = correctAns;
   }
   
