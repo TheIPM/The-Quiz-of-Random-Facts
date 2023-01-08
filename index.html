@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            <a id="highscores" href="#">Highscores</a>
+            <a id="viewHighScore" href="#">Highscores</a>
                     <div id= "time">
                     <span id="timeLeft">0</span>
                     </div>
@@ -68,13 +68,15 @@
 </section>
 
 
-<section class="hide" id="viewHS">
-    <div class="container">
-        <div class="row"><h1>Highscores</h1></div>
-        <div class="row" id="listOfHighScores">
-            <button id="back">Go back</button>
-            <button id="clear">Clear highscores</button>
-        </div>
+<div id="highScoreSection" class="hide">
+    <h2>High Scores</h2>                   
+    
+    <div id="listOfHighScores"></div>
+
+    <p>
+        <button type="submit" id="back">Go Back</button>
+        <button type="submit" id="clear">Clear High Scores</button>
+    </p>
 </section>
 
 
