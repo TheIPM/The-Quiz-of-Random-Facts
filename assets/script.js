@@ -99,10 +99,10 @@ choiceD.addEventListener("click", chooseD);
   });
 
 
-var totalTime = 120;
+var totalTime = 60;
 function newQuiz() {
   questionIndex = 0;
-  totalTime = 120;
+  totalTime = 60;
   timeLeft.textContent = totalTime;
   putInitials.textContent = "";
 

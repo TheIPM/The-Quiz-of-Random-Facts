@@ -1,4 +1,19 @@
 
+html {
+    background-image: linear-gradient(
+        rgba(203, 179, 204, 0.3) 0%,
+        rgba(78, 55, 82, 0.6) 100%
+      );
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: larger;
+}
+
 .container {
     margin-bottom: 25px;
     padding: 25px;
@@ -16,4 +31,10 @@
 
 .hide {
     display: none;
+    
+}
+
+#firstPage {
+display: flex;
+justify-content: center;
 }
