@@ -19,16 +19,16 @@ N/A
 
 ## Usage
 
-Firstly you have to press the begin button
-![image of first prompt](./Screenshot%20of%20first%20prompt.png)
+Firstly you have to press the begin button as shown below
+![image of first page](./assets/Screenshot%20of%20first%20page.png)
 
-Following that there is a series of questions that ask what you want the password to consist of and at least ONE of these boxes needs to be confirmed otherwise the Super Password Generator will prevent the creation of the password. 
+After completing the questions enter your intials to note your highscore
 
-![image of prevention](./Screenshot%20of%20need%20at%20least%20one%20type%20of%20char.png)
+![image of ending](./assets/ending%20screenshot.png)
 
-When finished the the Super Password Generator will create a password!
+When finished you can view or clear your highscores by going on the highscore page
 
-![image of final](./screenshot%20of%20the%20end.png)
+![image of highscore](./assets/highscore%20photo.png)
 
 
 ## Credits
