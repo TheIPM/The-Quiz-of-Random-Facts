@@ -34,69 +34,81 @@ var questionIndex = 0;
 
 var questions = [
     {
-        title: "Which of the following is NOT an example of a javascript variable?",
-        choices: ["let", "var", "set", "const"],
-        answer: "set"
+        title: "Which of the following is a fruit?",
+        choices: ["Banana", "Tomato", "Carrot", "The concept of time"],
+        answer: "Tomato"
     },
     {
-        title: "To select an element with a specific id in CSS, write a _ character followed by the id of the element.",
-        choices: ["#", "/", ".", "$"],
-        answer: "#"
+        title: "Which of the following is a delicious beverage?",
+        choices: ["A Cat", "A Brick", "A Milkshake", "The incomprehensible notion of infinity"],
+        answer: "A Milkshake"
     },
     {
-        title: "What does HTML stand for?",
-        choices: ["HyperText Modern Language", "HotText Modern Language", "HighText Markup Language", "HyperText Markup Language"],
-        answer: "HyperText Markup Language"
+        title: "If your lightbulb burns out what should you do?",
+        choices: ["Replace it", "Eat it", "Call the hospital", "Try to bring it back using dark magic"],
+        answer: "Replace it"
     },
     {
-        title: "What is the first index in any given array?",
-        choices: ["-1", "1", "i", "0"],
-        answer: "0"
+        title: "What is a popular theory as to how Sagittarius A (the supermassive black hole at the galactic center of the milky way) was formed?",
+        choices: ["Greg coded it in via Javascript", "Was the result of Rick's experiments", "Was formed by a Quasi-Star collapsing", "Was made by mini Big Bangs occuring within galaxys"],
+        answer: "Was formed by a Quasi-Star collapsing"
     },
     {
-        title: "A JavaScript Boolean represents one of two values:",
-        choices: ["yes, no", "on, off", "true, false", "black, white"],
-        answer: "true, false"
+        title: "Who do Gilgamesh and Enkidu defeat in the Cedar Forest, according to the Epic of Gilgamesh",
+        choices: ["Humbaba", "Arinsada", "Exodia the Forbidden one", "Frieza"],
+        answer: "Humbaba"
     },
     {
-        title: "Which HTML element does not require a closing tag?",
-        choices: ["h1", "img", "div", "form"],
-        answer: "img"
+        title: "Why could not the Mongols invade Japan",
+        choices: ["They were thwarted by natural disasters", "Their horses couldn't make the trip", "The samurai were too strong", "Japan had the power of Anime on their side"],
+        answer: "They were thwarted by natural disasters"
     },
     {
-        title: "The CSS box model is essentially a box that wraps around every HTML element. It consists of:",
-        choices: ["margins, padding", "margins, borders, padding, page content", "margins, borders, padding", "borders"],
-        answer: "margins, borders, padding, page content"
+        title: "How great was this quiz?",
+        choices: ["Not bad", "Was great", "Worst thing ever", "Peak"],
+        answer: "Peak"
     },
-    {
-        title: "What is bootstrap?",
-        choices: ["free open-source CSS framework", "paid open-source CSS framework", "free open-source javascript framework", "a strap on your boot"],
-        answer: "free open-source CSS framework"
-    },
-    {
-        title: "Which does DOM stand for?",
-        choices: ["Document Object Method", "Document Office Material", "Document Object Model", "Document Online Model"],
-        answer: "Document Object Model"
-    },
-    {
-        title: "Which of the following is okay to store in local storage?",
-        choices: ["social security number", "credit card info", "passwords", "highscore"],
-        answer: "highscore"
-    },
+
+
 ];
 
-function startTimer() {
-    timerInterval = setInterval(function() {
-        time--;
-        timerEl.textContent = "Time: " + time;
-        if(time === 0) {
-          clearInterval(timerInterval);
-          sendMessage();
-        }
-      }, 1000);
-}
+startQuizBtn.addEventListener("click", newQuiz);
+choiceA.addEventListener("click", chooseA);
+choiceB.addEventListener("click", chooseB);
+choiceC.addEventListener("click", chooseC);
+choiceD.addEventListener("click", chooseD);
 
-function sendMessage () {
-    alert("TIME'S UP!");
-    submitHighscores();
-}
+var totalTime = 120;
+function newQuiz() {
+  questionIndex = 0;
+  totalTime = 120;
+  timeLeft.textContent = totalTime;
+  putInitials.textContent = "";
+
+
+  var startTimer = setInterval(function() {
+      totalTime--;
+      timeLeft.textContent = totalTime;
+      if(totalTime <= 0) {
+          clearInterval(startTimer);
+          if (questionIndex < questions.length - 1) {
+              gameOver();
+          }
+      }
+  },1000);
+
+  showQuiz();
+};
+
+function showQuiz() {
+    nextQuestion();
+  }
+  
+  function nextQuestion() {
+    questionTitle.textContent = questions[questionIndex].question;
+    choiceA.textContent = questions[questionIndex].choices[0];
+    choiceB.textContent = questions[questionIndex].choices[1];
+    choiceC.textContent = questions[questionIndex].choices[2];
+    choiceD.textContent = questions[questionIndex].choices[3];
+  }
+  
